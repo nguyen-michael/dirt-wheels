@@ -42,6 +42,9 @@ app.get('/', function (req, res) {
 // MongoDB CRUD API
 app.use('/wheels', wheelsRouter);
 
+// Seed database with data if empty
+
+
 // Start server
 app.listen(process.env.PORT || PORT, () => {
     console.log(`Server Running on port ${PORT}`);
