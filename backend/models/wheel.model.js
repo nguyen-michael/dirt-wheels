@@ -5,11 +5,11 @@ const Schema = mongoose.Schema;
 // Schema model, takes object which is definition of schema, second parameter is an obj of schema options.
 const wheelSchema = new Schema({
     stockID: String,
-    size: Number,
+    size: String,
     rimMaterial: String,
     rimName: String,
     hubName: String,
-    hubSpacing: Number,
+    hubSpacing: String,
     brake: String,
     spokeLengthNDS: String,
     spokeLengthDS: String,
