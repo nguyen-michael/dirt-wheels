@@ -11,6 +11,14 @@ router.route('/').get((req, res) => {
         .catch(err => res.status(400).json(`Error getting all wheels: ${err}`));
 });
 
+// Get all wheels matching filter
+router.route('/search').get((req, res) => {
+    Wheel
+        .find(req.body)
+        .then(wheels => res.json(wheels))
+        .catch(err => res.status(400).json(`Error getting wheels by property: ${err}`))
+});
+
 // Find by Pat's Stock ID (can get pair)
 router.route('/:stockID').get((req, res) => {
     Wheel
