@@ -53,6 +53,7 @@ class App extends Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.handleReset = this.handleReset.bind(this);
     }
 
     handleSubmit(e) {
@@ -97,6 +98,20 @@ class App extends Component {
         this.setState({ searchQuery: newSearchQuery });
     }
 
+    handleReset(e) {
+        this.setState({
+            searchQuery: {
+                stockID: "",
+                size: "",
+                rimMaterial: "",
+                rimName: "",
+                hubName: "",
+                hubSpacing: "",
+                brake: ""
+            }
+        });
+    }
+
     /*   Testing get all wheel data on-load. Proxy functional!
       componentDidMount() {
         fetch('/wheels')
@@ -111,6 +126,7 @@ class App extends Component {
                     dropdowns={dropdownSettings}
                     handleSubmit={this.handleSubmit}
                     handleChange={this.handleChange}
+                    handleReset={this.handleReset}
                 />
                 <Results results={this.state.results} />
             </div>

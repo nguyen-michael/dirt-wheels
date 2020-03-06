@@ -21,6 +21,11 @@ class Search extends Component {
                     value="Search"
                     onClick={this.props.handleSubmit}
                 />
+                <input
+                    type="reset"
+                    value="Clear All"
+                    onClick={this.props.handleReset}
+                />
             </form>
         );
     }
