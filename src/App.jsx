@@ -71,7 +71,7 @@ class App extends Component {
 
         // console.log(`Our Request body is \n ${JSON.stringify(requestBody, null, 4)}`);
         // console.log(requestUrl);
-        
+
         const requestParameters = {
             method: 'GET'
         };
@@ -112,7 +112,7 @@ class App extends Component {
                     handleSubmit={this.handleSubmit}
                     handleChange={this.handleChange}
                 />
-                <Results />
+                <Results results={this.state.results} />
             </div>
         );
     }

@@ -2,6 +2,23 @@ import React, { Component } from 'react';
 
 class Results extends Component {
     render() {
+        const resultsArray = this.props.results.map(wheel => {
+            return (
+                <tr key={wheel._id}>
+                    <td>{wheel.stockID}</td>
+                    <td>{wheel.size}</td>
+                    <td>{wheel.rimMaterial}</td>
+                    <td>{wheel.rimName}</td>
+                    <td>{wheel.hubName}</td>
+                    <td>{wheel.hubSpacing}</td>
+                    <td>{wheel.brake}</td>
+                    <td>{wheel.spokeLengthNDS}</td>
+                    <td>{wheel.spokeLengthDS}</td>
+                    <td>{wheel.notes}</td>
+                </tr>
+            );
+        });
+
         return (
             <table>
                 <thead>
@@ -19,7 +36,7 @@ class Results extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {/* code to generate the rest of the td rows */}
+                    {resultsArray}
                 </tbody>
             </table>
         );
