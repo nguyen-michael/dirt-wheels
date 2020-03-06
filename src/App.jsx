@@ -57,8 +57,30 @@ class App extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-
         // console.log(`Submit clicked, search query is \n ${JSON.stringify(this.state.searchQuery, null, 4)}`);
+
+        let requestUrl = '/wheels/search/?';
+
+        Object.entries(this.state.searchQuery).forEach(entry => {
+            // If empty string, exclude from search functionality
+            // That is: Empty string is wildcard.
+            if (entry[1] !== "") {
+                requestUrl = requestUrl + entry[0] + "=" + entry[1] + "&";
+            }
+        });
+
+        // console.log(`Our Request body is \n ${JSON.stringify(requestBody, null, 4)}`);
+        // console.log(requestUrl);
+        
+        const requestParameters = {
+            method: 'GET'
+        };
+
+        fetch(requestUrl, requestParameters)
+            .then(res => res.json())
+            .then(found => this.setState({
+                results: found
+            }));
     }
 
     handleChange(e) {

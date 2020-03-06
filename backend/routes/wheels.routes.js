@@ -14,7 +14,7 @@ router.route('/').get((req, res) => {
 // Get all wheels matching filter
 router.route('/search').get((req, res) => {
     Wheel
-        .find(req.body)
+        .find(req.query)
         .then(wheels => res.json(wheels))
         .catch(err => res.status(400).json(`Error getting wheels by property: ${err}`))
 });
