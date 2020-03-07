@@ -7,18 +7,19 @@ class Dropdown extends Component {
         });
 
         return (
-            <>
-                <label htmlFor={this.props.name}>
-                    {this.props.name}
+            <div className="flex flex-col flex-1">
+                <label
+                    htmlFor={this.props.name}
+                >
+                    {this.props.label}
                 </label>
                 <select
                     name={this.props.name}
-                    id=""
                     onChange={this.props.handleChange}
                 >
                     {optionsArray}
                 </select>
-            </>
+            </div>
         );
     }
 }

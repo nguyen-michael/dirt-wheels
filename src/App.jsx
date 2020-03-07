@@ -5,30 +5,37 @@ import Search from './components/Search/Search';
 // Preseed data for dropdown boxes
 const dropdownSettings = [
     {
+        label: "Stock ID",
         name: "stockID",
         options: ["", "A", "B", "C", "D", "E"]
     },
     {
+        label: "Wheel Size",
         name: "size",
         options: ["", "27.5", "29"]
     },
     {
+        label: "Rim Material",
         name: "rimMaterial",
         options: ["", "Alloy", "Carbon"]
     },
     {
+        label: "Rim Name",
         name: "rimName",
         options: ["", "RC30", "RC36", "XC", "DE40"]
     },
     {
+        label: "Hub Name",
         name: "hubName",
         options: ["", "Dirt", "i9 Hydra", "i9 1/1", "i9 Torch"]
     },
     {
+        label: "Hub Spacing",
         name: "hubSpacing",
         options: ["", "100", "110", "135/142", "148"]
     },
     {
+        label: "Brake",
         name: "brake",
         options: ["", "6B", "CL"]
     }
