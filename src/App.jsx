@@ -18,7 +18,7 @@ const dropdownSettings = [
     },
     {
         name: "rimName",
-        options: ["", "RC", "RC30", "RC36", "XC", "DE40"]
+        options: ["", "RC30", "RC36", "XC", "DE40"]
     },
     {
         name: "hubName",
