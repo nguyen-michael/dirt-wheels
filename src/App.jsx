@@ -7,7 +7,7 @@ const dropdownSettings = [
     {
         label: "Stock ID",
         name: "stockID",
-        options: ["", "A", "B", "C", "D", "E"]
+        options: ['', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
     },
     {
         label: "Wheel Size",
@@ -129,6 +129,9 @@ class App extends Component {
     render() {
         return (
             <div>
+                <h1 className="text-4xl  text-center text-gray-800 my-8">
+                    DIRT COMPONENTS WHEEL DIRECTORY
+                </h1>
                 <Search
                     dropdowns={dropdownSettings}
                     handleSubmit={this.handleSubmit}

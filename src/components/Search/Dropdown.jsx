@@ -11,11 +11,14 @@ class Dropdown extends Component {
                 <label
                     htmlFor={this.props.name}
                 >
-                    {this.props.label}
+                    <p className="font-semibold text-gray-800 text-center px-4 py-2">
+                        {this.props.label}
+                    </p>
                 </label>
                 <select
                     name={this.props.name}
                     onChange={this.props.handleChange}
+                    className="border-b-2 mx-2 px-2 bg-gray-200 focus:outline-none focus:bg-white"
                 >
                     {optionsArray}
                 </select>
