@@ -5,9 +5,9 @@ const mongoose = require('mongoose');
 const wheelsRouter = require('./backend/routes/wheels.routes.js');
 const Wheel = require('./backend/models/wheel.model.js'); // Bring in model to use mongoose methods
 
-// Development Seed data Import. Remove or alter for deployment.
+// Seed data Import. Remove or alter for deployment.
 const fs = require('fs');
-const seedData = JSON.parse(fs.readFileSync('./dev-data/dirt-wheels-directory.json'));
+const seedData = JSON.parse(fs.readFileSync('./prod-data/dirt-wheels-directory.json'));
 
 require('dotenv').config()
 
@@ -19,7 +19,7 @@ app.use(cors())
 app.use(express.json()); // This technically replaced body parser (?)
 
 // Connect to Mongoose DB
-const uri = process.env.MONGO_URI;
+const uri = process.env.MONGODB_URI;
 // This allows us to envelope in some functionality during set up. 
 const connectDb = () => {
     return mongoose.connect(uri, {
@@ -60,7 +60,8 @@ app.use('/wheels', wheelsRouter);
 
 // Seed database with data if empty (Set true during development to reseed with json file)
 // Can also be used to seed deployed app
-const resetDatabaseOnSync = true;
+const resetDatabaseOnSync = process.env.RESET_ON_SYNC;
+const reseedFromJSON = process.env.RESEED_FROM_JSON;
 
 const seedDatabaseFromJSON = async () => {
     await Promise.all([
@@ -81,7 +82,11 @@ connectDb()
                 .catch((err) => { if (err) throw err });
         }
 
-        seedDatabaseFromJSON();
+        if (reseedFromJSON) {
+            console.log(`reseedFromJSON set to true, will reseed from JSON file in prod-data`);
+            seedDatabaseFromJSON();
+        }
+        
 
         app.listen(process.env.PORT || PORT, () => {
             console.log(`Server Running on port ${PORT}.`);

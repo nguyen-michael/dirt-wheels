@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 
 class Results extends Component {
     render() {
+        // var to global scope this variable to be used in the render return.
         const resultsArray = this.props.results.map((wheel, index) => {
             let bgColor = "bg-gray-200";
             if (index % 2 === 0) {
                 bgColor = "bg-transparent"
             }
-            
+
             return (
                 <tr key={wheel._id} className={bgColor}>
                     <td className="border px-4 py-2">{wheel.stockID}</td>
@@ -23,6 +24,7 @@ class Results extends Component {
                 </tr>
             );
         });
+
 
         return (
             <table className="table-auto">

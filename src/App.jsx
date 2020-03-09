@@ -138,7 +138,7 @@ class App extends Component {
                     handleChange={this.handleChange}
                     handleReset={this.handleReset}
                 />
-                <Results results={this.state.results} />
+                {this.state.results.length === 0 ? <p className="text-center font-bold">No wheels found</p>: <Results results={this.state.results} />}
             </div>
         );
     }
