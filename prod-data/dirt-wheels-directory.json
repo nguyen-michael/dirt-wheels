@@ -607,8 +607,8 @@
     "hubName": "Dirt",
     "hubSpacing": 100,
     "brake": "6B",
-    "spokeLengthNDS": "",
-    "spokeLengthDS": "",
+    "spokeLengthNDS": 297,
+    "spokeLengthDS": 298,
     "notes": ""
   },
   {
